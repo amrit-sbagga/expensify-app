@@ -1,0 +1,34 @@
+
+
+1 - installed 
+// npm i live-server
+//for running live server use in cmd -> live-server public
+//it will host file from public folder
+
+//npm i babel, -> version 6.24.1
+//npm i babel-preset-env
+//npm i babel-preset-react
+
+//babel -> website -> babeljs.io
+//babel converts es6 or es7 code to es5
+
+//JSX = Javascript XML
+var template = <p>This is JSX from app.js!</p>
+//from babel conversion
+// var template = React.createElement("p", {
+//     id: "someid"
+//   }, "This is JSX from app.js!");
+
+//babel command to execute in cmd = babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+> babel src/playground/es6-let-const.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+> babel src/playground/es6-arrow-function.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+> babel src/playground/event-handler.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+> babel src/playground/user-forms.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+> babel src/playground/build-it-visible.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+> babel src/playground/es6-classes-1.js --out-file=public/scripts/app.js --presets=env,react --watch
