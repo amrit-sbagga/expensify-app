@@ -28,30 +28,36 @@ const setCount = ({count = 115}) => ({
     count
 })
 
-const store = createStore((state = { count : 0 }, action) => {
-    //console.log('running..!!', action.type);
-    switch(action.type) {
-        case 'INCREMENT' :
-            return {
-                count : state.count + action.incrementBy
-            }
-        case 'DECREMENT' :
-            //const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1;
-            return {
-                count : state.count - action.decrementBy
-            }
-        case 'RESET' :
-            return {
-                count : action.count
-            }
-        case 'SET' : 
-            return {
-                count : action.count
-            }
-        default:
-            return state;
-    }
-});
+// Reducers
+// 1. Reducers are pure functions
+// 2. Never change tate or action
+
+const countReducer = (state = { count : 0 }, action) => {
+        //console.log('running..!!', action.type);
+        switch(action.type) {
+            case 'INCREMENT' :
+                return {
+                    count : state.count + action.incrementBy
+                }
+            case 'DECREMENT' :
+                //const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1;
+                return {
+                    count : state.count - action.decrementBy
+                }
+            case 'RESET' :
+                return {
+                    count : action.count
+                }
+            case 'SET' : 
+                return {
+                    count : action.count
+                }
+            default:
+                return state;
+        }
+    };
+
+const store = createStore(countReducer);
 
 const unsubscribe = store.subscribe(() => {
     console.log('subscribe() - ', store.getState());
