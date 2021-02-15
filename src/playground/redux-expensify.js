@@ -5,12 +5,14 @@ import { v4 as uuidv4 } from 'uuid';
 // ADD_EXPENSE
 const addExpense = (
     {
+        //this are all input parameters
         description = '',
         note = '',
         amount = 0,
         createdAt = 0
     } = {}
 ) => ({
+    //this are all used for setting objects
     type : 'ADD_EXPENSE',
     expense : {
         id : uuidv4(),
@@ -39,10 +41,30 @@ const editExpense = (id, updates) => ({
 const setTextFilter = (text = '') => ({
     type : 'SET_TEXT_FILTER',
     text
-})
+});
+
 // SORT_BY_DATE
+const sortByDate = () => ({
+    type : 'SORT_BY_DATE'
+});
+
 // SORT_BY_AMOUNT
+const sortByAmount = () => ({
+    type : 'SORT_BY_AMOUNT'
+});
+
+// SET_START_DATE
+const setStartDate = (startDate) => ({
+    type : 'SET_START_DATE',
+    startDate
+})
+
 // SET_END_DATE
+const setEndDate = (endDate) => ({
+    type : 'SET_END_DATE',
+    endDate
+})
+
 
 // expenses reducer
 
@@ -86,6 +108,26 @@ const filterReducer = (state = filterReducerDefaultState, action) => {
                 ...state,
                 text : action.text
             };
+        case 'SORT_BY_DATE':
+            return {
+                ...state,
+                sortBy : 'date'
+            }
+        case 'SORT_BY_AMOUNT' :
+            return {
+                ...state,
+                sortBy : 'amount'
+            };
+        case 'SET_START_DATE' :
+            return {
+                ...state,
+                startDate : action.startDate
+            };
+        case 'SET_END_DATE' :
+            return {
+                ...state,
+                endDate : action.endDate
+            }
         default:
             return state;
     }
@@ -102,6 +144,8 @@ const store = createStore(
 store.subscribe(() => {
     console.log(store.getState());
 });
+
+//Dispatchers
 
 console.log("add expense..!!");
 const expenseOne = store.dispatch(addExpense({
@@ -126,9 +170,25 @@ store.dispatch(editExpense(
     { amount : 500}
 ))
 
-console.log("filters..!!");
+console.log("filter1..!!");
 store.dispatch(setTextFilter('rent'));
+console.log("filter2..!!");
 store.dispatch(setTextFilter(''));
+
+console.log("sortByAmount..!!");
+store.dispatch(sortByAmount());
+
+console.log("sortByDate..!!");
+store.dispatch(sortByDate());
+
+console.log("setStartDate1..!!");
+store.dispatch(setStartDate(125));
+
+console.log("setStartDate2..!!");
+store.dispatch(setStartDate());
+
+console.log("setEndDate..!!");
+store.dispatch(setEndDate(130));
 
 //console.log(expenseOne);
 
