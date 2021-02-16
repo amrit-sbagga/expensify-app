@@ -142,6 +142,12 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 
         return startDateMatch && endDateMatch && textMatch;
+    }).sort((a, b) => {
+        if(sortBy === 'date'){
+            return a.createdAt < b.createdAt ? 1 : -1;
+        } else if(sortBy === 'amount'){
+            return a.amount < b.amount ? 1 : -1;
+        }
     })
 }
 
@@ -167,7 +173,7 @@ console.log("add expense..!!");
 const expenseOne = store.dispatch(addExpense({
     description : 'Rent',
     amount : 100,
-    createdAt : 1000
+    createdAt : -21000
 }));
 
 console.log("add expense..!!");
@@ -188,24 +194,24 @@ const expenseTwo = store.dispatch(addExpense({
 //     { amount : 500}
 // ))
 
-console.log("filter1..!!");
-store.dispatch(setTextFilter('ffe'));
+//console.log("filter1..!!");
+//store.dispatch(setTextFilter('ffe'));
 // console.log("filter2..!!");
 //store.dispatch(setTextFilter(''));
 
-// console.log("sortByAmount..!!");
-// store.dispatch(sortByAmount());
+console.log("sortByAmount..!!");
+store.dispatch(sortByAmount());
 
 // console.log("sortByDate..!!");
 // store.dispatch(sortByDate());
 
-console.log("setStartDate1..!!");
+//console.log("setStartDate1..!!");
 //store.dispatch(setStartDate(0));
 
 // console.log("setStartDate2..!!");
 // store.dispatch(setStartDate());
 
-console.log("setEndDate..!!");
+//console.log("setEndDate..!!");
 //store.dispatch(setEndDate(1250));
 
 //console.log(expenseOne);
