@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 import { v4 as uuidv4 } from 'uuid';
 
-//Action generator functions
+// Action generator functions
 // ADD_EXPENSE
 const addExpense = (
     {
@@ -108,6 +108,7 @@ const filterReducer = (state = filterReducerDefaultState, action) => {
                 ...state,
                 text : action.text
             };
+            //return state.text !== action.text;
         case 'SORT_BY_DATE':
             return {
                 ...state,
@@ -133,6 +134,17 @@ const filterReducer = (state = filterReducerDefaultState, action) => {
     }
 }
 
+// get visible expenses
+const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
+    return expenses.filter((expense) => {
+        const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate
+        const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+        const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
+
+        return startDateMatch && endDateMatch && textMatch;
+    })
+}
+
 //store creation
 const store = createStore(
     combineReducers({
@@ -142,7 +154,11 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-    console.log(store.getState());
+    const state = store.getState();
+    const visibleExpenses = 
+        getVisibleExpenses(state.expenses, state.filters)
+    //console.log(store.getState());
+    console.log("visibleExpenses = ", visibleExpenses);
 });
 
 //Dispatchers
@@ -150,45 +166,47 @@ store.subscribe(() => {
 console.log("add expense..!!");
 const expenseOne = store.dispatch(addExpense({
     description : 'Rent',
-    amount : 100
+    amount : 100,
+    createdAt : 1000
 }));
 
 console.log("add expense..!!");
 const expenseTwo = store.dispatch(addExpense({
     description : 'Coffee',
-    amount : 300
+    amount : 300,
+    createdAt : -1000
 }));
 
-console.log("remove expense..!!");
-store.dispatch(removeExpense({
-    id : expenseOne.expense.id
-}));
+// console.log("remove expense..!!");
+// store.dispatch(removeExpense({
+//     id : expenseOne.expense.id
+// }));
 
-console.log("edit expense..!!");
-store.dispatch(editExpense(
-    expenseTwo.expense.id,
-    { amount : 500}
-))
+// console.log("edit expense..!!");
+// store.dispatch(editExpense(
+//     expenseTwo.expense.id,
+//     { amount : 500}
+// ))
 
 console.log("filter1..!!");
-store.dispatch(setTextFilter('rent'));
-console.log("filter2..!!");
-store.dispatch(setTextFilter(''));
+store.dispatch(setTextFilter('ffe'));
+// console.log("filter2..!!");
+//store.dispatch(setTextFilter(''));
 
-console.log("sortByAmount..!!");
-store.dispatch(sortByAmount());
+// console.log("sortByAmount..!!");
+// store.dispatch(sortByAmount());
 
-console.log("sortByDate..!!");
-store.dispatch(sortByDate());
+// console.log("sortByDate..!!");
+// store.dispatch(sortByDate());
 
 console.log("setStartDate1..!!");
-store.dispatch(setStartDate(125));
+//store.dispatch(setStartDate(0));
 
-console.log("setStartDate2..!!");
-store.dispatch(setStartDate());
+// console.log("setStartDate2..!!");
+// store.dispatch(setStartDate());
 
 console.log("setEndDate..!!");
-store.dispatch(setEndDate(130));
+//store.dispatch(setEndDate(1250));
 
 //console.log(expenseOne);
 
