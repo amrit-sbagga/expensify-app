@@ -29,7 +29,7 @@ store.dispatch(setTextFilter('water'));
 //console.log(store.getState());
 
 setTimeout(() => {
-    store.dispatch(setTextFilter('rent'));
+    store.dispatch(setTextFilter('bill'));
 }, 3000)
 
 const state = store.getState();
