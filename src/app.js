@@ -24,6 +24,11 @@ store.dispatch(addExpense({
     createdAt : 2000
 }));
 
+store.dispatch(addExpense({
+    description : 'Rent',
+    amount : 7000
+}));
+
 store.dispatch(setTextFilter('water'));
 
 //console.log(store.getState());
