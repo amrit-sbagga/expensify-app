@@ -12,12 +12,12 @@ test('should add two numbers', () => {
     // }
 });
 
-test('should generate greeting', () => {
-    const name = generateGreeting("Monty");
-    expect(name).toBe("Hello Monty");
-});
+// test('should generate greeting', () => {
+//     const name = generateGreeting("Monty");
+//     expect(name).toBe("Hello Monty");
+// });
 
-test('should generate greeting for no name', () => {
-    const name = generateGreeting();
-    expect(name).toBe("Hello Anonymous");
-})
+// test('should generate greeting for no name', () => {
+//     const name = generateGreeting();
+//     expect(name).toBe("Hello Anonymous");
+// })
