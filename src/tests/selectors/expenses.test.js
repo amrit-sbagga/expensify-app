@@ -11,7 +11,7 @@ const expenses = [{
     id : 2,
     description : "Rent",
     note : "",
-    amount : 1095,
+    amount : 10095,
     createdAt : moment(0).subtract(4, 'days').valueOf()
 }, {
     id : 3,
@@ -44,12 +44,38 @@ test('should filter by startDate', () => {
 });
 
 //should filter by endDate
-
-
+test('should filter by endDate', () => {
+    const filters = {
+        text : '',
+        sortBy  : 'date',
+        startDate : undefined,
+        endDate : moment(0).add(2, 'days');
+    };
+    const result = selectExpenses(expenses, filters);
+    expect(result).toEqual([expenses[0], expenses[1]]);
+});
 
 //should sort by date
+test('should sort by date', () => {
+    const filters = {
+        text : '',
+        sortBy  : 'date',
+        startDate : undefined,
+        endDate : undefined
+    };
+    const result = selectExpenses(expenses, filters);
+    expect(result).toEqual([expenses[2], expenses[0], expenses[1]]);
+});
 
 
-
-//should filter by amount
-
+//should sort by amount
+test('should sort by amount', () => {
+    const filters = {
+        text : '',
+        sortBy  : 'amount',
+        startDate : undefined,
+        endDate : undefined
+    };
+    const result = selectExpenses(expenses, filters);
+    expect(result).toEqual([expenses[1], expenses[2], expenses[0]])
+});
