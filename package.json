@@ -1,13 +1,10 @@
 {
   "name": "expensify-app",
-  "jest": {
-    "verbose": true
-  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache",
+    "test": "jest --no-cache --config ./jest.config.js",
     "test1": "react-scripts test --transformIgnorePatterns \"node_modules/(?!ui-core)/\" --env=jsdom",
     "serve": "live-server public/",
     "build": "webpack",
