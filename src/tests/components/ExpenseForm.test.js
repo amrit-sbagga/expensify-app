@@ -15,7 +15,7 @@ test('should render ExpenseForm correctly with expense data', () => {
 });
 
 test('should render error for invalid form submission', () => {
-    const wrapper = shallow(<ExpenseForm/>);
+    const wrapper = shallow(<ExpenseForm />);
     expect(wrapper).toMatchSnapshot();
     wrapper.find('form').simulate('submit', {
         preventDefault : () => { }
@@ -25,5 +25,10 @@ test('should render error for invalid form submission', () => {
 });
 
 test('should set description on input change', () => {
-
+    const value = 'New description';
+    const wrapper = shallow(<ExpenseForm />);
+    wrapper.find('input').at(0).simulate('change', {
+        target : { value }
+    });
+    expect(wrapper.state('description')).toBe(value);
 });
