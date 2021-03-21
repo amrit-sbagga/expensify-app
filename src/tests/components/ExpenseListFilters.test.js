@@ -33,3 +33,39 @@ test('should render ExpenseListFilters with alt data correctly', () => {
     });
     expect(wrapper).toMatchSnapshot();
 });
+
+// should handle text change
+test('should handle text change', () => {
+    const value = 'rent';
+    wrapper.find('input').simulate('change', {
+        target : { value }
+    });
+    expect(setTextFilter).toHaveBeenLastCalledWith(value);
+});
+
+// should sort by date
+test('should sort by date', () => {
+    const value = 'date';
+    wrapper.setProps({
+        filters : altFilters
+    });
+    wrapper.find('select').simulate('change', {
+        target : { value }
+    });
+    expect(sortByDate).toHaveBeenCalled();
+});
+
+// should sort by amount
+test('should sort by amount', () => {
+
+});
+
+// should handle date changes
+test('should handle date changes', () => {
+
+});
+
+// should handle date focus changes
+test('should handle date focus changes', () => {
+
+});
