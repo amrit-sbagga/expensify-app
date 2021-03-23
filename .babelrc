@@ -1,16 +1,16 @@
 {
     "presets": [
-        ["env", { "modules": false }],
-        "es2015",
-        "react",
-        "stage-2",
-      //  "preset-env",
-      //  "preset-react"
-     //   "env",
+      //  ["env", { "modules": false }],
+      //  "es2015",
+      //  "react",
+      //  "stage-2"
+        "preset-env",
+        "preset-react"
+      //  "env",
       //  "react" 
       //  ["es2015", {"modules": false, "loose": true}]
-      "@babel/preset-env",
-      "@babel/preset-react"
+     // "@babel/preset-env",
+    //  "@babel/preset-react"
     ],
     "plugins": [
         "transform-class-properties",
@@ -20,7 +20,8 @@
     "test": [
         "jest"
     ],
-    "@babel/preset-env": {
+    //"@babel/preset-env": {
+    "preset-env": {
         "test": {
           "plugins": ["transform-es2015-modules-commonjs"]
         }
