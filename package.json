@@ -8,7 +8,7 @@
     "test1": "react-scripts test --transformIgnorePatterns \"node_modules/(?!ui-core)/\" --env=jsdom",
     "serve": "live-server public/",
     "build:dev": "webpack",
-    "build:prod": "webpack -p --env production",
+    "build:prod": "webpack --mode production --env production",
     "dev-server": "webpack serve",
     "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
   },

@@ -1,11 +1,11 @@
 {
     "presets": [
-      //  ["env", { "modules": false }],
-      //  "es2015",
-      //  "react",
-      //  "stage-2"
-        "preset-env",
-        "preset-react"
+        ["env", { "modules": false }],
+        "es2015",
+        "react",
+        "stage-2"
+      //  "preset-env",
+      //  "preset-react"
       //  "env",
       //  "react" 
       //  ["es2015", {"modules": false, "loose": true}]
@@ -31,8 +31,6 @@
 // {
 //     "presets": ["@babel/preset-env", "@babel/preset-react"],
 // }
-
-
 
 // {
 //     "presets": [
