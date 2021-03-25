@@ -1,6 +1,7 @@
 //entry -> output
 
-const path = require('path')
+const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 //console.log(path.join(__dirname, 'public'));
 
 module.exports = (env) => {
