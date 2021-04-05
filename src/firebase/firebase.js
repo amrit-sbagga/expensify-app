@@ -26,17 +26,25 @@ const firebaseConfig = {
           city :'Sgh',
           country : 'India'
       }
-  });
+  }).then(() => {
+      console.log('Data is saved!');
+  }).catch((err) => {
+      console.log("Error : ", err);
+  })
 
 
   //database.ref().set('This is my data.');
 
-  database.ref('age').set(32);
-  database.ref('location/city').set('Sarangarh');
+  //database.ref('age').set(32);
+  //database.ref('location/city').set('Sarangarh');
 
   database.ref('attributes').set({
       height : '176cm',
       weight : '72kg'
-  });
+  }).then(() => {
+      console.log('Second set call worked!');
+  }).catch((err) => {
+      console.log('Err : ', err);
+  })
 
-  console.log('Data changed!');
+  //console.log('Data changed!');
