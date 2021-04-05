@@ -30,7 +30,19 @@ const firebaseConfig = {
       console.log('Data is saved!');
   }).catch((err) => {
       console.log("Error : ", err);
-  })
+  });
+
+  //removing data using set using null
+ // database.ref('isSingle').set(null);
+
+  // removing data
+  database.ref('isSingle')
+    .remove() // returns Promise
+    .then(() => {
+        console.log('Data was removed!');
+    }).catch((err) => {
+        console.log('Did not remove data, error : ', err);
+    });
 
 
   //database.ref().set('This is my data.');
@@ -38,13 +50,13 @@ const firebaseConfig = {
   //database.ref('age').set(32);
   //database.ref('location/city').set('Sarangarh');
 
-  database.ref('attributes').set({
-      height : '176cm',
-      weight : '72kg'
-  }).then(() => {
-      console.log('Second set call worked!');
-  }).catch((err) => {
-      console.log('Err : ', err);
-  })
+//   database.ref('attributes').set({
+//       height : '176cm',
+//       weight : '72kg'
+//   }).then(() => {
+//       console.log('Second set call worked!');
+//   }).catch((err) => {
+//       console.log('Err : ', err);
+//   });
 
   //console.log('Data changed!');
