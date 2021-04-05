@@ -18,6 +18,48 @@ const firebaseConfig = {
 
   const database = firebase.database();
 
+  //child removed - subscribe
+//   database.ref('expenses').on('child_removed', (snapshot) => {
+//     console.log(snapshot.key, snapshot.val());
+//   });
+
+   //child_changed - subscribe
+    //  database.ref('expenses').on('child_changed', (snapshot) => {
+    //     console.log(snapshot.key, snapshot.val());
+    //  });
+
+    // child_added - subscribe
+    //  database.ref('expenses').on('child_added', (snapshot) => {
+    //     console.log(snapshot.key, snapshot.val());
+    //  });
+
+  //array data read
+//   database.ref('expenses')
+//     .once('value')
+//     .then((snapshot) => {
+//         //console.log(snapshot.val());
+//         const expenses = [];
+//         snapshot.forEach((childSnapshot) => {
+//             expenses.push({
+//                 id : childSnapshot.key,
+//                 ...childSnapshot.val()
+//             });
+//         });
+//         console.log(expenses);
+//     });
+
+    //array data change - based on subscribe
+    // database.ref('expenses').on('value', (snapshot) => {
+    //     const expenses = [];
+    //     snapshot.forEach((childSnapshot) => {
+    //         expenses.push({
+    //             id : childSnapshot.key,
+    //             ...childSnapshot.val()
+    //         });
+    //     });
+    //     console.log(expenses);
+    // });
+
 //   database.ref('expenses').push({
 //        description : 'Rent',
 //        note : '',
