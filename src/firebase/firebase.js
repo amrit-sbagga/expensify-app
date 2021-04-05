@@ -18,6 +18,52 @@ const firebaseConfig = {
 
   const database = firebase.database();
 
+//   database.ref('expenses').push({
+//        description : 'Rent',
+//        note : '',
+//        amount : 7000,
+//        createdAt : 976123498763
+//   });
+
+//   database.ref('expenses').push({
+//     description : 'Phone Bill',
+//     note : '',
+//     amount : 500,
+//     createdAt : 976123437628
+// });
+
+//   // array data in firebase
+//   let firebaseNotes = {
+//         notes : {
+//             "123456789" : {
+//                 "title" : "note1",
+//                 "body" : "body content 1"
+//             }
+//         },
+//         notes : {
+//             "1234565654" : {
+//                 "title" : "note2",
+//                 "body" : "body content 2"
+//             }
+//         }
+//     };
+
+    // will generate random Id having note obj
+    // database.ref('notes').push({
+    //     "title" : "note2",
+    //     "body" : "body content 2"
+    // });
+   
+    // database.ref('notes').set(firebaseNotes);
+
+    // update array based on Id
+    // database.ref('notes/~Krll52aVDQ3X^d)tmS7').update({
+    //     body : 'Buy Food'
+    // });
+
+    //remove based on Id
+    //database.ref('notes/~Krll52aVDQ3X^d)tmS7').remove();
+
     // fetch
     // database.ref().on('value', (snapshot) => {
     //     const val = snapshot.val();
@@ -28,34 +74,34 @@ const firebaseConfig = {
    //fetch data - single time or using subscribe
    
     //fetch - subscribe for changes
-    const onValueChange = database.ref().on('value', (snapshot) => {
-        console.log(snapshot.val());
-    }, (err) => {
-        console.log("Error with data fetching : ", err);
-    });
+    // const onValueChange = database.ref().on('value', (snapshot) => {
+    //     console.log(snapshot.val());
+    // }, (err) => {
+    //     console.log("Error with data fetching : ", err);
+    // });
 
-    setTimeout(() => {
-        database.ref('age').set(28);
-    }, 3500);
+    // setTimeout(() => {
+    //     database.ref('age').set(28);
+    // }, 3500);
 
-    setTimeout(() => {
-       // unsubscribe
-        database.ref('age').off(onValueChange);
-    }, 7000);
+    // setTimeout(() => {
+    //    // unsubscribe
+    //     database.ref('age').off(onValueChange);
+    // }, 7000);
 
-    setTimeout(() => {
-        database.ref('age').set(30);
-    }, 10500);
+    // setTimeout(() => {
+    //     database.ref('age').set(30);
+    // }, 10500);
 
    // fetch - single
-   database.ref() //ref('location')
-     .once('value')
-     .then((snapshot) => {
-        const val = snapshot.val();
-        console.log('Val = ', val);
-     }).catch((err) => {
-         console.log('Error fetching data : ', err);
-     });
+//    database.ref() //ref('location')
+//      .once('value')
+//      .then((snapshot) => {
+//         const val = snapshot.val();
+//         console.log('Val = ', val);
+//      }).catch((err) => {
+//          console.log('Error fetching data : ', err);
+//      });
 
 
    //create data
