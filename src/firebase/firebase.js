@@ -18,6 +18,8 @@ const firebaseConfig = {
 
   const database = firebase.database();
 
+  export { firebase, database as default };
+
   //child removed - subscribe
 //   database.ref('expenses').on('child_removed', (snapshot) => {
 //     console.log(snapshot.key, snapshot.val());
