@@ -1,5 +1,16 @@
 import { v4 as uuidv4 } from 'uuid';
 
+// component calls action generator
+// action generator returns object
+// component dispatches object
+// redux store changes
+
+// new call with firebase
+// component calls action generator
+// action generator returns function
+// component dispatches function (?)
+// function runs (has the ability to dispatch other action & do whatever it wants)
+
 // Action generator functions
 // ADD_EXPENSE
 export const addExpense = (
