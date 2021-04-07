@@ -11,17 +11,21 @@ const promise = new Promise((resolve, reject) => {
 
 console.log('before');
 
-// promise.then((data) => {
-//     console.log('1', data);
-// }).catch((err) => {
-//     console.log('Error = ', err);
-// });
-
 promise.then((data) => {
     console.log('1', data);
-}, (err) => {
+    let val = 111;
+    return val;
+}).then((val) => {
+    console.log('2', val);
+}).catch((err) => {
     console.log('Error = ', err);
 });
+
+// promise.then((data) => {
+//     console.log('1', data);
+// }, (err) => {
+//     console.log('Error = ', err);
+// });
 
 // promise.then((data) => {
 //     console.log('2', data);
