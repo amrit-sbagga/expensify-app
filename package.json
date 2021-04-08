@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache --config jest.config.json",
+    "test": "cross-env NODE_ENV=test jest --no-cache --config=jest.config.json",
     "test1": "react-scripts test --transformIgnorePatterns \"node_modules/(?!ui-core)/\" --env=jsdom",
     "serve": "live-server public/",
     "build:dev": "webpack",
@@ -50,6 +50,8 @@
     "webpack": "^5.20.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.1",
