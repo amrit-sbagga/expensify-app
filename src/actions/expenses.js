@@ -86,6 +86,23 @@ export const editExpense = (id, updates) => ({
     updates
 });
 
+//Expense Update challenge!
+
+// 1. Create startEditExpense
+// 2. Test startEditExpense with "should edit expense from firebase"
+// 3. Use startEditExpense in EditExpensePage instead of editExpense
+// 4. Adjust EditExpensePage tests
+
+export const startEditExpense = (id, updates) => {
+    return (dispatch) => {
+        return database.ref(`expenses/${id}`).update(updates).then(() => {
+            dispatch(editExpense(id, updates));
+        });
+    };
+};
+
+
+
 //SET_EXPENSES
 export const setExpenses = (expenses) => ({
     type : 'SET_EXPENSES',
